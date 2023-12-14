@@ -1,4 +1,4 @@
-package es.um.atica.patterns.guia.domain;
+package es.um.atica.patterns.guia.domain.model;
 
 import java.util.Collections;
 import java.util.List;
@@ -54,6 +54,7 @@ public class GuiaDocente {
     public String idiomaGuia() { return idioma.label(); }
     public String estado() { return estado.toString(); }
     public String presentacion() { return presentacion.texto(); }
+    public boolean isPresentacionEditable() { return presentacion.isEditable(); }
     public List<String> resultadosAprendizaje() { 
         return (resultados!=null) ? resultados.stream().map(r -> r.texto()).collect(Collectors.toList()) : Collections.emptyList(); 
     }

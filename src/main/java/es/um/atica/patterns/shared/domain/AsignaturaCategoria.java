@@ -1,4 +1,4 @@
-package es.um.atica.patterns.listado.domain;
+package es.um.atica.patterns.shared.domain;
 
 import java.util.Arrays;
 
@@ -13,7 +13,7 @@ public enum AsignaturaCategoria {
         return Arrays.stream(values())
             .filter(i -> l.equals(i.label))
             .findFirst()
-            .orElseThrow(() -> new IllegalArgumentException("Modalidad asignatura no válido."));
+            .orElseThrow(() -> new IllegalArgumentException("Categoría asignatura no válido."));
     }
 
     public String label() { return label; }

@@ -1,5 +1,6 @@
 package es.um.atica.patterns.listado.domain;
 
+import es.um.atica.patterns.shared.domain.AsignaturaCategoria;
 import es.um.atica.patterns.shared.domain.AsignaturaCodigo;
 import es.um.atica.patterns.shared.domain.CursoAcademico;
 import es.um.atica.patterns.shared.domain.GuiaDocenteEstado;
@@ -50,6 +51,7 @@ public class GuiaDocenteResumida {
     public String tipoAsignatura() { return tipoAsignatura.label(); }
     public String idioma() { return idioma.label(); }
     public String estado() { return estado.name(); }
+    public String categoria() { return categoria.label(); }
     public int cursoAcademico() { return cursoAcademico.value(); }
     public boolean isTf() { return AsignaturaCategoria.TFG.equals(categoria) || AsignaturaCategoria.TFM.equals(categoria); }
     public boolean isPracticum() { return AsignaturaCategoria.PRACTICUM.equals(categoria); }

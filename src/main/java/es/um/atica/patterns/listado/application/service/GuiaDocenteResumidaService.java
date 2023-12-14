@@ -17,7 +17,11 @@ public class GuiaDocenteResumidaService {
     }
 
     public List<GuiaDocenteResumida> loadGuiasResumidasFromUser(String userId) {
-        return guiaDocenteResumidaReadRepository.loadAsignaturasFromUser(userId);
+        return guiaDocenteResumidaReadRepository.loadGuiasResumidasFromUser(userId);
+    }
+
+    public GuiaDocenteResumida loadGuiaResumidaFromUser(String userId, String cod, String tipo, int curso, String idioma) {
+        return guiaDocenteResumidaReadRepository.loadGuiaResumidaFromUser(userId, cod, tipo, curso, idioma);
     }
 
 }

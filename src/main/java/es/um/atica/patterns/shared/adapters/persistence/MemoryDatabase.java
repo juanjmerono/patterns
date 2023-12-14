@@ -9,7 +9,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import es.um.atica.patterns.guia.domain.GuiaDocente;
+import es.um.atica.patterns.guia.domain.model.GuiaDocente;
 import es.um.atica.patterns.listado.domain.GuiaDocenteResumida;
 
 @Service
@@ -17,10 +17,12 @@ public class MemoryDatabase {
 
     private Map<String,List<GuiaDocenteResumida>> databaseSummary = new HashMap<>();
     private List<GuiaDocente> database = new ArrayList<>();
+    private Map<String,String> databasePresentation = new HashMap<>();
 
     public MemoryDatabase() {
+        // Summary Database Init
         List<GuiaDocenteResumida> list = new ArrayList<>();
-        GuiaDocenteResumida gdr = GuiaDocenteResumida.builder()
+        list.add(GuiaDocenteResumida.builder()
             .codigoTitulacion("123")
             .descripcionTitulacion("Mi titulacion")
             .codigoAsignatura("1234")
@@ -30,9 +32,22 @@ public class MemoryDatabase {
             .categoria("NOR")
             .idioma("E")
             .estado("NOCUMPLIMENTADA")
-            .build();
-        list.add(gdr);
+            .build());
         databaseSummary.put("12345678", list);
+        list = new ArrayList<>();
+        list.add(GuiaDocenteResumida.builder()
+            .codigoTitulacion("123")
+            .descripcionTitulacion("Mi titulacion")
+            .codigoAsignatura("4321")
+            .descripcionAsignatura("Mi asignatura")
+            .tipo("G")
+            .curso(2023)
+            .categoria("TFG")
+            .idioma("E")
+            .estado("NOCUMPLIMENTADA")
+            .build());
+        databaseSummary.put("12345679", list);
+        // Guia Database Init
         database.add(GuiaDocente.builder()
             .codigo("1234")
             .tipo("G")
@@ -40,10 +55,13 @@ public class MemoryDatabase {
             .presentacion("Texto Presentación", true)
             .estado("PUBLICADA")
             .build());
-
+        // Presentacion Database Init
+        databasePresentation.put("TFG", "Presentación para guias TFG");
+        databasePresentation.put("TFM", "Presentación para guias TFM");
+        databasePresentation.put("PRT", "Presentación para guias Practicum");
     }
 
-    public List<GuiaDocenteResumida> getGuiaDocenteResumida(String userId) {
+    public List<GuiaDocenteResumida> getGuiasDocentesResumidas(String userId) {
         return databaseSummary.getOrDefault(userId, Collections.emptyList());
     }
 
@@ -74,6 +92,10 @@ public class MemoryDatabase {
             .build());
         database.add(guia);
         return guia;
+    }
+
+    public String getPresentacion(String key) {
+        return databasePresentation.getOrDefault(key,"No presentation");
     }
 
 }

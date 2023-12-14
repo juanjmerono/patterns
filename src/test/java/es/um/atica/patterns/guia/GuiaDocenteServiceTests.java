@@ -1,5 +1,6 @@
 package es.um.atica.patterns.guia;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
@@ -7,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import es.um.atica.patterns.guia.application.service.GuiaDocenteService;
-import es.um.atica.patterns.guia.domain.GuiaDocente;
+import es.um.atica.patterns.guia.domain.model.GuiaDocente;
 
 @SpringBootTest
 public class GuiaDocenteServiceTests {
@@ -25,6 +26,7 @@ public class GuiaDocenteServiceTests {
 	void testCreateGuia() {
 		GuiaDocente gd = guiaDocenteService.createGuiaDocente("12345679", "4321", "G", 2023, "E");
 		assertNotNull(gd);
+		assertEquals("Presentación para guias TFG",gd.presentacion());
 	}
 
 }

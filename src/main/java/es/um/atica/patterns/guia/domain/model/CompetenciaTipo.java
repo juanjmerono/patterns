@@ -1,4 +1,4 @@
-package es.um.atica.patterns.guia.domain;
+package es.um.atica.patterns.guia.domain.model;
 
 import java.util.Arrays;
 

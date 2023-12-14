@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import es.um.atica.patterns.guia.application.port.GuiaDocenteReadRepository;
 import es.um.atica.patterns.guia.application.port.GuiaDocenteWriteRepository;
-import es.um.atica.patterns.guia.domain.GuiaDocente;
+import es.um.atica.patterns.guia.domain.model.GuiaDocente;
 import es.um.atica.patterns.shared.adapters.persistence.MemoryDatabase;
 
 @Repository
